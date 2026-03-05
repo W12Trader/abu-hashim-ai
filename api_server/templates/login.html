@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QalamAI - Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-navy: #0A1A2F;
+      --light-navy: #142A45;
+      --gold: #D4AF37;
+      --dark-gold: #B8941E;
+      --white: #FFFFFF;
+      --off-white: #F5F5F0;
+      --light-gray: #E0E0E0;
+      --error: #C62828;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--dark-navy);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+    .login-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px 32px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--gold);
+      color: var(--dark-navy);
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .login-header h1 {
+      font-size: 1.5rem;
+      color: var(--dark-navy);
+      font-weight: 700;
+    }
+    .login-header p {
+      color: #9E9E9E;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--dark-navy);
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    }
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      background: var(--gold);
+      color: var(--dark-navy);
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-login:hover {
+      background: var(--dark-gold);
+    }
+    .error-msg {
+      background: #FFEBEE;
+      color: var(--error);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .footer-text {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.8rem;
+      color: #9E9E9E;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="logo-icon">Q</div>
+        <h1>QalamAI</h1>
+        <p>Admin Dashboard Login</p>
+      </div>
+      {% if error %}
+      <div class="error-msg">{{ error }}</div>
+      {% endif %}
+      <form method="POST" action="/login">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required autocomplete="username" autofocus>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn-login">Sign In</button>
+      </form>
+      <div class="footer-text">Abu Hashim AI Model Framework</div>
+    </div>
+  </div>
+</body>
+</html>

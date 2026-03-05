@@ -3,16 +3,18 @@ import sys
 import uuid
 import json
 import time
+import hashlib
 import logging
 from datetime import datetime
 from typing import Optional
 from collections import deque
 
 from fastapi import FastAPI, HTTPException, Request, UploadFile, File, Form
-from fastapi.responses import StreamingResponse, HTMLResponse, JSONResponse
+from fastapi.responses import StreamingResponse, HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
+from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 
 from api_server.schemas import (
     GenerateRequest,
@@ -63,6 +65,33 @@ if os.path.isdir(STATIC_DIR):
 
 templates = Jinja2Templates(directory=TEMPLATES_DIR) if os.path.isdir(TEMPLATES_DIR) else None
 
+SESSION_SECRET = os.environ.get("SESSION_SECRET", "qalam-default-secret-change-me")
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "admin")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "admin123")
+SESSION_MAX_AGE = 86400
+
+serializer = URLSafeTimedSerializer(SESSION_SECRET)
+
+
+def _create_session_token(username: str) -> str:
+    return serializer.dumps({"user": username})
+
+
+def _verify_session(token: str) -> Optional[str]:
+    try:
+        data = serializer.loads(token, max_age=SESSION_MAX_AGE)
+        return data.get("user")
+    except (BadSignature, SignatureExpired):
+        return None
+
+
+def _is_authenticated(request: Request) -> bool:
+    token = request.cookies.get("qalam_session")
+    if not token:
+        return False
+    return _verify_session(token) is not None
+
+
 request_log = deque(maxlen=1000)
 latency_log = deque(maxlen=100)
 
@@ -90,8 +119,44 @@ async def startup_event():
     logger.info(f"Safety filters: {'enabled' if SAFETY_ENABLED else 'disabled'}")
 
 
+@app.get("/login", response_class=HTMLResponse)
+async def login_page(request: Request):
+    if _is_authenticated(request):
+        return RedirectResponse(url="/", status_code=302)
+    if templates:
+        return templates.TemplateResponse("login.html", {"request": request, "error": None})
+    return HTMLResponse("<html><body><h1>Login</h1><p>Templates not configured.</p></body></html>")
+
+
+@app.post("/login")
+async def login_submit(request: Request, username: str = Form(...), password: str = Form(...)):
+    if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+        token = _create_session_token(username)
+        response = RedirectResponse(url="/", status_code=302)
+        response.set_cookie(
+            key="qalam_session",
+            value=token,
+            max_age=SESSION_MAX_AGE,
+            httponly=True,
+            samesite="lax",
+        )
+        return response
+    if templates:
+        return templates.TemplateResponse("login.html", {"request": request, "error": "Invalid username or password"})
+    return HTMLResponse("<html><body><h1>Login Failed</h1></body></html>", status_code=401)
+
+
+@app.get("/logout")
+async def logout():
+    response = RedirectResponse(url="/login", status_code=302)
+    response.delete_cookie("qalam_session")
+    return response
+
+
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
+    if not _is_authenticated(request):
+        return RedirectResponse(url="/login", status_code=302)
     if templates and os.path.exists(os.path.join(TEMPLATES_DIR, "dashboard.html")):
         return templates.TemplateResponse("dashboard.html", {"request": request})
     return HTMLResponse(

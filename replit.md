@@ -44,9 +44,20 @@ The application starts via `python main.py` which launches the FastAPI server on
 Recommended: CohereForAI/aya-23-8B (Arabic-capable, fine-tuning friendly)
 Alternatives: core42/jais-13b-chat, Qwen/Qwen2-7B-Instruct
 
+## Authentication
+The admin dashboard requires login. Default credentials are set via environment variables:
+- `ADMIN_USERNAME` - Dashboard login username (default: admin)
+- `ADMIN_PASSWORD` - Dashboard login password (default: admin123)
+- API endpoints (`/api/*`) remain accessible without login (webhooks use X-Webhook-Secret)
+
+## Deployment
+A `Dockerfile` is included for containerized deployment. Use `requirements-server.txt` for lightweight server-only installs, or `requirements.txt` for full ML stack on GPU infrastructure.
+
 ## Environment Variables
 - `QALAM_MODEL_PATH` - Path to base model (optional, uses config default)
-- `SESSION_SECRET` - Session secret for the application
+- `SESSION_SECRET` - Session secret for cookie signing
+- `ADMIN_USERNAME` - Dashboard login username
+- `ADMIN_PASSWORD` - Dashboard login password
 - `WEBHOOK_SECRET` - Shared secret for QalamAI.net webhook authentication
 
 ## Notes
