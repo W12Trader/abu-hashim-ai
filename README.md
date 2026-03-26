@@ -13,6 +13,61 @@ An advanced Arabic AI assistant built on open-source language models.
 </div>
 
 ---
+## 🔗 Official Resources & Documentation
+
+### 🧠 Base Models (LLMs)
+- Aya Models (Aya-23-8B / Aya-23-35B): https://huggingface.co/CohereForAI
+- JAIS-13B: https://huggingface.co/inception-mbzuai
+- Qwen2-7B: https://huggingface.co/Qwen
+
+### 🧰 Training & Fine‑Tuning Tools
+- HuggingFace Transformers: https://huggingface.co/docs/transformers
+- HuggingFace Datasets: https://huggingface.co/docs/datasets
+- PEFT (LoRA / QLoRA): https://huggingface.co/docs/peft
+- BitsAndBytes (4‑bit quantization): https://github.com/TimDettmers/bitsandbytes
+- Accelerate: https://huggingface.co/docs/accelerate
+- PyTorch: https://pytorch.org
+
+### 🧹 Data Processing & Cleaning
+- Python: https://www.python.org
+- Regex (re module): https://docs.python.org/3/library/re.html
+- FastText (optional): https://fasttext.cc
+
+### 🧪 Evaluation & Benchmarking
+- HuggingFace Evaluate: https://huggingface.co/docs/evaluate
+- BLEU / ROUGE / METEOR Metrics: https://huggingface.co/docs/evaluate
+- CAMeL Arabic NLP Tools: https://camelcameltools.readthedocs.io
+
+### 🚀 Inference & Serving
+- FastAPI: https://fastapi.tiangolo.com
+- Uvicorn: https://www.uvicorn.org
+- Jinja2 Templates: https://jinja.palletsprojects.com
+- Pydantic: https://docs.pydantic.dev
+
+### 🔐 Safety & Filtering
+- OpenAI Moderation (reference): https://platform.openai.com/docs/guides/moderation
+- HuggingFace Safety Models: https://huggingface.co/models?pipeline_tag=text-classification&other=safety
+
+### 🧭 QalamAI Integration
+- QalamAI Platform: https://qalamai.net
+- JSONL Format: https://jsonlines.org
+
+### 🖥️ Dashboard & Branding
+- HTML5: https://developer.mozilla.org/docs/Web/HTML
+- CSS3: https://developer.mozilla.org/docs/Web/CSS
+- TailwindCSS (optional): https://tailwindcss.com
+
+### 📦 Project Environment
+- Python 3.10+: https://www.python.org/downloads
+- CUDA Toolkit: https://developer.nvidia.com/cuda-toolkit
+- NVIDIA Drivers: https://www.nvidia.com/download/index.aspx
+
+### 📄 Licenses
+- Aya Models License: https://huggingface.co/CohereForAI/aya-23-8b#license
+- JAIS Models License: https://huggingface.co/inception-mbzuai/jais-13b#license
+- Qwen Models License: https://huggingface.co/Qwen/Qwen2-7B#license
+- Transformers License: https://github.com/huggingface/transformers/blob/main/LICENSE
+- FastAPI License: https://github.com/tiangolo/fastapi/blob/master/LICENSE
 
 ## Overview
 
