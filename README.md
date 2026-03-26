@@ -12,62 +12,48 @@ An advanced Arabic AI assistant built on open-source language models.
 
 </div>
 
----
-## 🔗 Official Resources & Documentation
+<div align="center">
 
-### 🧠 Base Models (LLMs)
-- Aya Models (Aya-23-8B / Aya-23-35B): https://huggingface.co/CohereForAI
-- JAIS-13B: https://huggingface.co/inception-mbzuai
-- Qwen2-7B: https://huggingface.co/Qwen
+<!-- Programming Language -->
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://python.org)
 
-### 🧰 Training & Fine‑Tuning Tools
-- HuggingFace Transformers: https://huggingface.co/docs/transformers
-- HuggingFace Datasets: https://huggingface.co/docs/datasets
-- PEFT (LoRA / QLoRA): https://huggingface.co/docs/peft
-- BitsAndBytes (4‑bit quantization): https://github.com/TimDettmers/bitsandbytes
-- Accelerate: https://huggingface.co/docs/accelerate
-- PyTorch: https://pytorch.org
+<!-- Frameworks -->
+[![FastAPI](https://img.shields.io/badge/API-FastAPI-009688.svg)](https://fastapi.tiangolo.com)
+[![Uvicorn](https://img.shields.io/badge/Server-Uvicorn-4B8BBE.svg)](https://www.uvicorn.org)
+[![Pydantic](https://img.shields.io/badge/Schema-Pydantic-0A66C2.svg)](https://docs.pydantic.dev)
 
-### 🧹 Data Processing & Cleaning
-- Python: https://www.python.org
-- Regex (re module): https://docs.python.org/3/library/re.html
-- FastText (optional): https://fasttext.cc
+<!-- Machine Learning -->
+[![PyTorch](https://img.shields.io/badge/ML-PyTorch-EE4C2C.svg)](https://pytorch.org)
+[![Transformers](https://img.shields.io/badge/HuggingFace-Transformers-FFD21E.svg)](https://huggingface.co/docs/transformers)
+[![Datasets](https://img.shields.io/badge/HuggingFace-Datasets-FF6F00.svg)](https://huggingface.co/docs/datasets)
+[![PEFT](https://img.shields.io/badge/PEFT-LoRA%2FQLoRA-FF9900.svg)](https://huggingface.co/docs/peft)
+[![BitsAndBytes](https://img.shields.io/badge/Quantization-BitsAndBytes-00A67E.svg)](https://github.com/TimDettmers/bitsandbytes)
+[![Accelerate](https://img.shields.io/badge/HuggingFace-Accelerate-0099CC.svg)](https://huggingface.co/docs/accelerate)
 
-### 🧪 Evaluation & Benchmarking
-- HuggingFace Evaluate: https://huggingface.co/docs/evaluate
-- BLEU / ROUGE / METEOR Metrics: https://huggingface.co/docs/evaluate
-- CAMeL Arabic NLP Tools: https://camelcameltools.readthedocs.io
+<!-- Base Models -->
+[![Aya-23](https://img.shields.io/badge/Model-Aya--23-8B%2F35B-8A2BE2.svg)](https://huggingface.co/CohereForAI)
+[![JAIS-13B](https://img.shields.io/badge/Model-JAIS--13B-1E90FF.svg)](https://huggingface.co/inception-mbzuai)
+[![Qwen2-7B](https://img.shields.io/badge/Model-Qwen2--7B-FF4500.svg)](https://huggingface.co/Qwen)
 
-### 🚀 Inference & Serving
-- FastAPI: https://fastapi.tiangolo.com
-- Uvicorn: https://www.uvicorn.org
-- Jinja2 Templates: https://jinja.palletsprojects.com
-- Pydantic: https://docs.pydantic.dev
+<!-- Evaluation -->
+[![Evaluate](https://img.shields.io/badge/HuggingFace-Evaluate-5A4FCF.svg)](https://huggingface.co/docs/evaluate)
+[![CAMeL Tools](https://img.shields.io/badge/ArabicNLP-CAMeL--Tools-006400.svg)](https://camelcameltools.readthedocs.io)
 
-### 🔐 Safety & Filtering
-- OpenAI Moderation (reference): https://platform.openai.com/docs/guides/moderation
-- HuggingFace Safety Models: https://huggingface.co/models?pipeline_tag=text-classification&other=safety
+<!-- Safety -->
+[![Safety](https://img.shields.io/badge/Safety-Content%20Filters-red.svg)](https://platform.openai.com/docs/guides/moderation)
 
-### 🧭 QalamAI Integration
-- QalamAI Platform: https://qalamai.net
-- JSONL Format: https://jsonlines.org
+<!-- QalamAI -->
+[![QalamAI](https://img.shields.io/badge/QalamAI-Integration-DAA520.svg)](https://qalamai.net)
 
-### 🖥️ Dashboard & Branding
-- HTML5: https://developer.mozilla.org/docs/Web/HTML
-- CSS3: https://developer.mozilla.org/docs/Web/CSS
-- TailwindCSS (optional): https://tailwindcss.com
+<!-- Environment -->
+[![CUDA](https://img.shields.io/badge/NVIDIA-CUDA-76B900.svg)](https://developer.nvidia.com/cuda-toolkit)
+[![NVIDIA Drivers](https://img.shields.io/badge/NVIDIA-Drivers-76B900.svg)](https://www.nvidia.com/download/index.aspx)
 
-### 📦 Project Environment
-- Python 3.10+: https://www.python.org/downloads
-- CUDA Toolkit: https://developer.nvidia.com/cuda-toolkit
-- NVIDIA Drivers: https://www.nvidia.com/download/index.aspx
+<!-- License -->
+[![License](https://img.shields.io/badge/License-Open%20Source-green.svg)](#)
 
-### 📄 Licenses
-- Aya Models License: https://huggingface.co/CohereForAI/aya-23-8b#license
-- JAIS Models License: https://huggingface.co/inception-mbzuai/jais-13b#license
-- Qwen Models License: https://huggingface.co/Qwen/Qwen2-7B#license
-- Transformers License: https://github.com/huggingface/transformers/blob/main/LICENSE
-- FastAPI License: https://github.com/tiangolo/fastapi/blob/master/LICENSE
+</div>
+
 
 ## Overview
 
